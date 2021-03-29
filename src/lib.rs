@@ -56,16 +56,8 @@
 
 use core::slice::SliceIndex;
 
-mod private {
-    pub trait Sealed {}
-    impl<T> Sealed for &[T] {}
-    impl<T> Sealed for &mut [T] {}
-    impl Sealed for &str {}
-    impl Sealed for &mut str {}
-}
-
 /// The extension trait that allows you to shrink a slice.
-pub trait Shrink: private::Sealed {
+pub trait Shrink {
     /// The type of slice that gets shrunk.
     type Slice: ?Sized;
 
